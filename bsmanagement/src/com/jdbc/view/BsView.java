@@ -189,7 +189,9 @@ public class BsView {
 		return sc.nextLine();
 	}
 	
-	
+	public void printMsg(String msg) {
+		System.out.println(msg);
+	}
 	
 	
 	public int inputData() {

@@ -66,7 +66,7 @@ public class BsController implements Controller{
 		else if(ou.toLowerCase().equals("d")){
 			sal=new BsView().inputData();
 			emp=service.selectEmpSalaryUnder(sal);
-		}else System.out.println("잘못 입력하였습니다");
+		}else new BsView().printMsg("잘못 입력하였습니다");  
 		new BsView().printEmp(emp);
 		
 	}
@@ -75,7 +75,7 @@ public class BsController implements Controller{
 	public void insertEmp() {
 		Employee e=new BsView().insertEmp();
 		int result=service.insertEmp(e);
-		System.out.println(result>0?"저장성공":"저장실패");
+		new BsView().printMsg(result>0?"저장성공":"저장실패");
 	}
 
 	@Override
@@ -83,7 +83,7 @@ public class BsController implements Controller{
 		String id=new BsView().inputData("변경할 사원아이디");
 		Employee e=new BsView().updateEmp();
 		int result=service.updateEmp(id, e);
-		System.out.println(result>0?"수정성공":"수정실패");
+		new BsView().printMsg(result>0?"수정성공":"수정실패");
 		
 	}
 
@@ -91,7 +91,7 @@ public class BsController implements Controller{
 	public void deleteEmp() {
 		String id=new BsView().inputData("삭제할 사원아이디 ");
 		int result=service.deleteEmp(id);
-		System.out.println(result>0?"삭제성공":"삭제실패");
+		new BsView().printMsg(result>0?"삭제성공":"삭제실패");
 	}
 
 	@Override
@@ -104,7 +104,7 @@ public class BsController implements Controller{
 	public void insertDept() {
 		Department d=new BsView().insertDept();
 		int result=service.insertDept(d);
-		System.out.println(result>0?"부서등록성공":"부서등록실패");
+		new BsView().printMsg(result>0?"부서등록성공":"부서등록실패");
 		
 		
 	}
@@ -114,14 +114,14 @@ public class BsController implements Controller{
 		String id=new BsView().inputData("수정할 부서아이디 ").toUpperCase();
 		Department d=new BsView().updateDept();
 		int result=service.updateDept(id,d);
-		System.out.println(result>0?"부서수정성공":"부서수정실패");
+		new BsView().printMsg(result>0?"부서수정성공":"부서수정실패");
 	}
 
 	@Override
 	public void deleteDept() {
 		String id=new BsView().inputData("삭제할 부서아이디 ").toUpperCase();
 		int result=service.deleteDept(id);
-		System.out.println(result>0?"부서삭제성공":"부서삭제실패");
+		new BsView().printMsg(result>0?"부서삭제성공":"부서삭제실패");
 		
 	}
 
@@ -129,7 +129,7 @@ public class BsController implements Controller{
 	public void insertJob() {
 		Job j=new BsView().insertJob();
 		int result=service.insertJob(j);
-		System.out.println(result>0?"직책등록성공":"직책등록실패");
+		new BsView().printMsg(result>0?"직책등록성공":"직책등록실패");
 		
 		
 	}
@@ -139,14 +139,14 @@ public class BsController implements Controller{
 		String jc=new BsView().inputData("수정할 직책 ").toUpperCase();
 		String jn=new BsView().updateJob();
 		int result=service.updateJob(jc,jn);
-		System.out.println(result>0?"직책수정성공":"직책수정실패");
+		new BsView().printMsg(result>0?"직책수정성공":"직책수정실패");
 	}
 
 	@Override
 	public void deleteJob() {
 		String jc=new BsView().inputData("삭제할 직책 ").toUpperCase();
 		int result=service.deleteJob(jc);
-		System.out.println(result>0?"직책삭제성공":"직책삭제실패");
+		new BsView().printMsg(result>0?"직책삭제성공":"직책삭제실패");
 	}
 
 	@Override
