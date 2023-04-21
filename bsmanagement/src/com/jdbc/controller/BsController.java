@@ -79,8 +79,9 @@ public class BsController implements Controller{
 	@Override
 	public void updateEmp() {
 		String id=new BsView().inputData("변경할 사원 아이디");
-		Employee e=new 
-		int result=service.updateEmp(id);
+		Employee e=new BsView().updateEmp();
+		int result=service.updateEmp(id, e);
+		System.out.println(result>0?"수정성공":"수정실패");
 		
 	}
 

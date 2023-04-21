@@ -60,9 +60,9 @@ public class BsService {
 		return result;
 	}
 	
-	public int updateEmp(String id) {
+	public int updateEmp(String id, Employee e) {
 		Connection conn=getConnection();
-		int result=bd.updateEmp(conn, id);
+		int result=bd.updateEmp(conn, id, e);
 		if(result>0) commit(conn);
 		else rollBack(conn);
 		close(conn);
