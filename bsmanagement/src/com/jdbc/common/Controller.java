@@ -12,5 +12,11 @@ public interface Controller {
 	void selectEmpJob();
     void selectEmpName();
     void selectEmpSalary();
+    void insertDept();
+    void updateDept();
+    void deleteDept();
+    void insertJob();
+    void updateJob();
+    void deleteJob();
 
 }

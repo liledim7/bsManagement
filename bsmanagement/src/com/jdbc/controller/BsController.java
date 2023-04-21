@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.jdbc.common.Controller;
+import com.jdbc.model.dto.Department;
 import com.jdbc.model.dto.Employee;
+import com.jdbc.model.dto.Job;
 import com.jdbc.service.BsService;
 import com.jdbc.view.BsView;
 
@@ -78,7 +80,7 @@ public class BsController implements Controller{
 
 	@Override
 	public void updateEmp() {
-		String id=new BsView().inputData("변경할 사원 아이디");
+		String id=new BsView().inputData("변경할 사원아이디");
 		Employee e=new BsView().updateEmp();
 		int result=service.updateEmp(id, e);
 		System.out.println(result>0?"수정성공":"수정실패");
@@ -87,19 +89,69 @@ public class BsController implements Controller{
 
 	@Override
 	public void deleteEmp() {
-		// TODO Auto-generated method stub
-		
+		String id=new BsView().inputData("삭제할 사원아이디 ");
+		int result=service.deleteEmp(id);
+		System.out.println(result>0?"삭제성공":"삭제실패");
 	}
 
 	@Override
 	public void deptMenu() {
-		// TODO Auto-generated method stub
+		new BsView().deptMenu();
 		
 	}
 
 	@Override
+	public void insertDept() {
+		Department d=new BsView().insertDept();
+		int result=service.insertDept(d);
+		System.out.println(result>0?"부서등록성공":"부서등록실패");
+		
+		
+	}
+
+	@Override
+	public void updateDept() {
+		String id=new BsView().inputData("수정할 부서아이디 ").toUpperCase();
+		Department d=new BsView().updateDept();
+		int result=service.updateDept(id,d);
+		System.out.println(result>0?"부서수정성공":"부서수정실패");
+	}
+
+	@Override
+	public void deleteDept() {
+		String id=new BsView().inputData("삭제할 부서아이디 ").toUpperCase();
+		int result=service.deleteDept(id);
+		System.out.println(result>0?"부서삭제성공":"부서삭제실패");
+		
+	}
+
+	@Override
+	public void insertJob() {
+		Job j=new BsView().insertJob();
+		int result=service.insertJob(j);
+		System.out.println(result>0?"직책등록성공":"직책등록실패");
+		
+		
+	}
+
+	@Override
+	public void updateJob() {
+		String jc=new BsView().inputData("수정할 직책 ").toUpperCase();
+		String jn=new BsView().updateJob();
+		int result=service.updateJob(jc,jn);
+		System.out.println(result>0?"직책수정성공":"직책수정실패");
+	}
+
+	@Override
+	public void deleteJob() {
+		String jc=new BsView().inputData("삭제할 직책 ").toUpperCase();
+		int result=service.deleteJob(jc);
+		System.out.println(result>0?"직책삭제성공":"직책삭제실패");
+	}
+
+	@Override
 	public void jobMenu() {
-		// TODO Auto-generated method stub
+		new BsView().jobMenu();
 		
 	}
 	
